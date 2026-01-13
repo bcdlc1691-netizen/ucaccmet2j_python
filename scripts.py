@@ -4,7 +4,7 @@ print()
 
 import json
 
-with open('ucaccmet2j_python/precipitation.json') as file:
+with open('precipitation.json') as file:
     data= json.load(file)
 
 # Manually looking up seattle code
@@ -105,20 +105,13 @@ for cityname in listofcitynames:
     # save to alr existing json file!
 
 
-    # Intercity rains
-    # ask user for which station they want?
-    # now i have to save everything to the json
-    # first solve json line problem that pops up 
-    # done
-    # i want to save everything I printed to json
-    # does not work
-
     # import json
 
     # with open('ucaccmet2j_python/results.json', 'w', encoding='utf-8') as file:
     #     json.dump(totalmonthly, file, indent=4)
     # with open('ucaccmet2j_python/results.json', 'a', encoding='utf-8') as file:
     #     json.dump(listrm, file, indent=4)
+
 # should be in this form
 
 
@@ -156,4 +149,4 @@ for cityname in listofcitynames:
     # "relative_yearly_precipitation": ...
     # }
 # }
-# i tried my best, no final json format
+# i tried my best, no final dictionary json format
