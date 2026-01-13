@@ -1,5 +1,6 @@
 # Start of the ex. 
 # open file
+print()
 
 import json
 
@@ -31,6 +32,8 @@ totalmonthly = {}
 # but it actually didn't
 # so then eduardo helped me #thankssomuch
 
+print("Monthly precipitation for the area in units")
+print()
 
 for measurement in seattle:
     date = measurement['date']
@@ -43,6 +46,7 @@ for measurement in seattle:
            
 print(totalmonthly)
 
+print()
 
 # save to json
 
@@ -50,3 +54,44 @@ import json
 
 with open('ucaccmet2j_python/results.json', 'w', encoding='utf-8') as file:
     json.dump(totalmonthly, file, indent=4)
+
+## plot bonus did not work, continue
+
+# Calculate total yearly preci, 
+# the sum of preci in a year for location
+
+print("Total yearly precipitation for the area")
+
+# this could be done just with total monthly but oh well
+totalyearly = 0
+for measurement in seattle:
+    totalyearly += measurement['value']
+print(totalyearly)
+
+print()
+# relative monthly precipitation
+# per month
+# dictionary, key = month, value = percentage 
+
+print("Relative monthly precipitation for the area as a percentage of yearly total")
+print()
+
+relativemonthly = {}
+for month in totalmonthly.values():
+    relativemonthly[month] = (month/ totalyearly) * 100
+    relativemonthly[month] = round(relativemonthly[month], 2)
+
+listrm= (list(relativemonthly.values()))
+print(listrm)
+
+print()
+
+# save to alr existing json file!
+
+with open('ucaccmet2j_python/results.json', "a", encoding='utf-8') as file:
+    json.dump(listrm, file, indent=4)
+
+# Intercity rains
+# ask user for which station they want?
+
+
