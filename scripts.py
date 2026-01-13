@@ -27,7 +27,9 @@ for measurement in data:
 
 
 totalmonthly = {}
-#months= ['01','02','03', '03','04','05','06','07','08','09','10','11','12']
+# I was doing it a very different way that apparently worked according to both TAs
+# but it actually didn't
+# so then eduardo helped me #thankssomuch
 
 
 for measurement in seattle:
@@ -35,13 +37,16 @@ for measurement in seattle:
     month = date.split('-')[1]
         
     if month in totalmonthly:
-        totalmonthly['month'] += measurement['value']
+        totalmonthly[month] += measurement['value']
     else:
-        totalmonthly['month'] = measurement['value']
+        totalmonthly[month] = measurement['value']
            
 print(totalmonthly)
 
-# import json
 
-# with open('results.json', 'w', encoding='utf-8') as file:
-#     json.dump(totalmonthly, file, indent=4)
+# save to json
+
+import json
+
+with open('ucaccmet2j_python/results.json', 'w', encoding='utf-8') as file:
+    json.dump(totalmonthly, file, indent=4)
