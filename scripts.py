@@ -156,3 +156,4 @@ for cityname in listofcitynames:
     # "relative_yearly_precipitation": ...
     # }
 # }
+# i tried my best, no final json format
